@@ -8,4 +8,5 @@ Int main() {
     for (Int i = 0; i < 100; i++) {
         std.print(String(i))
     }
+    return 0
 }
