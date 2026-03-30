@@ -1,5 +1,7 @@
 header(
-    standard as std
+    standard as std,
+    "test.flnth",
+    math
 )
 
 Int main() {
