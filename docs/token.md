@@ -18,9 +18,11 @@
 - public
 - private
 - protected
+- enum
 ### Misc
 - void
 - const
+- header
 ## OPERATOR
 ### Arithmatic
 - `+`
@@ -54,6 +56,8 @@
 - `}`
 - `[`
 - `]`
+- `<`
+- `>`
 - `;`
 - `:`
 - `,`
