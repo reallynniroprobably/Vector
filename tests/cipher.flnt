@@ -1,13 +1,23 @@
+header standard as std
 
-List<Char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
+std.List<Char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
 
 String encode(String input, Int shift) {
     String output = ""
-    List<Bool> capitalisation = {}
+    std.List<Bool> capitalisation = {}
     for (Char character : input) {
-        Char outputCharacter
         capitalisation.pushBack(c.isUpper())
-        
+        Char outputCharacter = switch (true) {
+            case ((alphabet.find(c.toLower()) + shift).isNegative()):
+                alphabet[26 + (alphabet.find(c.toLower()) + shift)]
+                break
+            case ((alphabet.find(c.toLower()) + shift) > alphabet.size() - 1):
+                alphabet[alphabet.find(c.toLower()) + shift - 26]
+                break
+            default:
+                alphabet[alphabet.find(c.toLower()) + shift]
+        }
+        Char outputCharacter = 
     }
 }
 
