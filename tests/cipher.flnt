@@ -1,29 +1,37 @@
-header standard as std
+header(
+    <standard> as std,
+);
 
-std.List<Char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
+std.List<Char> alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
 String encode(String input, Int shift) {
-    String output = ""
-    std.List<Bool> capitalisation = {}
+    String output = "";
     for (Char character : input) {
-        capitalisation.pushBack(c.isUpper())
         Char outputCharacter = switch (true) {
             case ((alphabet.find(c.toLower()) + shift).isNegative()):
-                alphabet[26 + (alphabet.find(c.toLower()) + shift)]
-                break
+                alphabet[26 + (alphabet.find(c.toLower()) + shift)];
+                break;
             case ((alphabet.find(c.toLower()) + shift) > alphabet.size() - 1):
-                alphabet[alphabet.find(c.toLower()) + shift - 26]
-                break
+                alphabet[alphabet.find(c.toLower()) + shift - 26];
+                break;
             default:
-                alphabet[alphabet.find(c.toLower()) + shift]
+                alphabet[alphabet.find(c.toLower()) + shift];
         }
-        Char outputCharacter = 
+        if (c.isUpper) {
+            outputCharacter.apply{ toUpper() }
+        }
+        output.pushBack(outputCharacter);
     }
+    return output;
 }
 
 Int main() {
 
+    String code = encode("This is a caesar cipher");
 
+    String decoded = decode(code);
 
-    return 0
+    std.print(decoded);
+
+    return 0;
 }
