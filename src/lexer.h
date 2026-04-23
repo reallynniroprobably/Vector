@@ -10,7 +10,9 @@ enum TokenType {
     FLOAT_LITERAL,
     STRING_LITERAL,
     CHARACTER_LITERAL,
-    BOOLEAN_LITERAL
+    BOOLEAN_LITERAL,
+    EOF_TOKEN,
+    FILLER_TOKEN,
 };
 
 enum Tokens {
@@ -66,7 +68,8 @@ enum Tokens {
 };
 struct Token {
     std::string value;
-    explicit Token(std::string value = "") : value(std::move(value)) {}
+    TokenType type;
+    explicit Token(std::string value = "", const TokenType type = FILLER_TOKEN) : value(std::move(value)), type(type) {}
 };
 
 struct LexedFile {
@@ -74,6 +77,6 @@ struct LexedFile {
     explicit LexedFile(std::vector<Token> tokens) : tokens(std::move(tokens)) {}
 };
 
-LexedFile lexFile(const std::string &fileContents);
+LexedFile lexFile(const std::string& fileContents);
 
 #endif //LEXER
