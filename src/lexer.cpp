@@ -2,7 +2,7 @@
 
 
 LexedFile lexFile(const std::string& fileContents) {
-    std::vector<Token> lexedFile = Token();
+    std::vector<Token> lexedFile = {Token()};
     bool isComment = false;
     bool inString  = false;
     bool inChar    = false;
@@ -13,7 +13,6 @@ LexedFile lexFile(const std::string& fileContents) {
                 case ' ':
                 case '\t':
                 case '\n':
-                c
                 default:
             }
          }

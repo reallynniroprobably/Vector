@@ -3,7 +3,7 @@
 #include "lexer.h"
 
 int main() {
-    std::ifstream in("../tests/test.vct");
+    std::ifstream in("../tests/test.cb");
     if (!in.is_open()) {
         printf("ERROR: could not open input file\n");
         return 1;
